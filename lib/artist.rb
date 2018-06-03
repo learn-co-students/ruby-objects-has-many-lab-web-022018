@@ -22,8 +22,14 @@ def add_song_by_name(song_name)
   song.artist = self
 end
 
+# def self.song_count
+#   @@song_count = @@artists.map {|artist| artist.songs.count}.reduce(:+)
+# end
+
 def self.song_count
-  @@song_count = @@artists.map {|artist| artist.songs.count}.reduce(:+)
+  count = 0
+  @@artists.each {|artist| count += artist.songs.count}
+  @song_count = count
 end
 
 end
